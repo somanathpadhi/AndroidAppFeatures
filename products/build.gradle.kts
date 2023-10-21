@@ -1,18 +1,16 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
-    kotlin("kapt")
-    id("com.google.dagger.hilt.android")
 }
 
 android {
-    namespace = "com.example.androidappfeatures"
-    compileSdk = 34
+    namespace = "com.example.products"
+    compileSdk = 33
 
     defaultConfig {
-        applicationId = "com.example.androidappfeatures"
+        applicationId = "com.example.products"
         minSdk = 24
-        targetSdk = 34
+        targetSdk = 33
         versionCode = 1
         versionName = "1.0"
 
@@ -25,15 +23,18 @@ android {
     buildTypes {
         release {
             isMinifyEnabled = false
-            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
+            )
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_17
-        targetCompatibility = JavaVersion.VERSION_17
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
     }
     kotlinOptions {
-        jvmTarget = "17"
+        jvmTarget = "1.8"
     }
     buildFeatures {
         compose = true
@@ -50,7 +51,7 @@ android {
 
 dependencies {
 
-    implementation(Dependencies.core)
+    implementation("androidx.core:core-ktx:1.9.0")
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.6.2")
     implementation("androidx.activity:activity-compose:1.8.0")
     implementation(platform("androidx.compose:compose-bom:2023.03.00"))
@@ -65,30 +66,4 @@ dependencies {
     androidTestImplementation("androidx.compose.ui:ui-test-junit4")
     debugImplementation("androidx.compose.ui:ui-tooling")
     debugImplementation("androidx.compose.ui:ui-test-manifest")
-
-    //libraries
-    implementation(Retrofit.retrofit)
-    implementation(Retrofit.gson)
-    implementation(Hilt.hilt)
-    kapt(Hilt.hiltCompiler)
-    implementation(Room.roomRuntime)
-    annotationProcessor(Room.roomCompiler)
-    implementation(Room.roomKTX)
-    testImplementation(Room.roomTesting)
-    implementation(Room.roomPaging)
-
-    //  Navigation
-    //  Mockito
-    //  Page3
-    // 4. glide
-    // 5. coil
-    // 9. Moshi
-
-    //10. RxJava
-
-}
-
-// Allow references to generated code
-kapt {
-    correctErrorTypes = true
 }
