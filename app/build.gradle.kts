@@ -63,4 +63,21 @@ dependencies {
     androidTestImplementation("androidx.compose.ui:ui-test-junit4")
     debugImplementation("androidx.compose.ui:ui-tooling")
     debugImplementation("androidx.compose.ui:ui-test-manifest")
+
+    //libraries
+
+    //  retrofit
+    //  Hilt
+    //  Navigation
+    //  Mockito
+
+    //  Room
+    //  Page3
+    
+    // 4. glide
+    // 5. coil
+    // 9. Moshi
+
+    //10. RxJava
+
 }
