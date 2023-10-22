@@ -4,5 +4,5 @@ import com.example.androidappfeatures.data.model.PostDTO
 import kotlinx.coroutines.flow.Flow
 
 interface PostRepo {
-    fun getPosts(): Flow<List<PostDTO>>
+    suspend fun getPosts(): List<PostDTO>
 }

@@ -4,6 +4,6 @@ import com.example.androidappfeatures.data.model.PostDTO
 import retrofit2.http.GET
 
 interface APIService {
-    @GET("post")
-    fun getPosts() : List<PostDTO>
+    @GET("posts")
+    suspend fun getPosts(): List<PostDTO>
 }
