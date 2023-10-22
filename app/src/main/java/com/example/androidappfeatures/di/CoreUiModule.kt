@@ -10,7 +10,7 @@ import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
-internal class CoreUiModule {
+internal object CoreUiModule {
     @Singleton
     @Provides
     fun provideCoroutineContextProvider(): CoroutineContextProvider = CoroutineContextProviderImpl()

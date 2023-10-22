@@ -14,7 +14,7 @@ import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
-class HiltNetworkModule {
+object HiltNetworkModule {
     @Provides
     @Singleton
     fun getBaseURL() = "https://jsonplaceholder.typicode.com/"
