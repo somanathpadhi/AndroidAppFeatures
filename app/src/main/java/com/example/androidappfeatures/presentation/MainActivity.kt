@@ -36,14 +36,11 @@ class MainActivity : ComponentActivity() {
                 ) {
                     viewModel.getPosts()
                     Greeting(viewModel.postList.collectAsState().value.data.toString())
-
                 }
             }
         }
     }
 }
-
-
 @Composable
 fun Greeting(name: String, modifier: Modifier = Modifier) {
     Text(

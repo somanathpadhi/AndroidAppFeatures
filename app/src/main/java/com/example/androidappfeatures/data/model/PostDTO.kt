@@ -8,9 +8,3 @@ data class PostDTO(
     val title: String,
     val userId: Int
 )
-
-fun PostDTO.toDomainPost(): Post {
-    return Post(
-        title = title
-    )
-}

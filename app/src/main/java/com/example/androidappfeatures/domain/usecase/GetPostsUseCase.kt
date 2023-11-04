@@ -2,8 +2,8 @@ package com.example.androidappfeatures.domain.usecase
 
 import com.example.androidappfeatures.common.CoroutineContextProvider
 import com.example.androidappfeatures.common.Resource
-import com.example.androidappfeatures.data.model.toDomainPost
 import com.example.androidappfeatures.domain.model.Post
+import com.example.androidappfeatures.domain.model.toDomain
 import com.example.androidappfeatures.domain.repo.PostRepo
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
@@ -19,9 +19,7 @@ class GetPostsUseCase @Inject constructor(
     suspend operator fun invoke(): Flow<Resource<List<Post>>> =
         flow {
             try {
-                val posts = postRepo.getPosts().map {
-                    it.toDomainPost()
-                }
+                val posts = postRepo.getPosts().map { it.toDomain() }
                 emit(Resource.Success(posts))
             } catch (e: HttpException) {
                 emit(Resource.Error(message = "${e.localizedMessage} unexpected Error"))
